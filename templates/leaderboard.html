@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link href="static/Leaderboard.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <center>
+            <h1>Leaderboard</h1>
+        <div class="table-responsive col-md-6">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Rank</th>
+                    <th>User</th>
+                    <th>Points</th>
+                </tr>
+                    {% for x in score %}
+                <tr>
+                    <td> {{ rank[loop.index0] }}</td> <!-- looping the rank variable inside the score loop -->
+                    <td> {{ x.username.upper() }} </td> <!--Capitalizes usernames -->
+                    <td> {{ x.total_points }} </td>
+                    
+                </tr>
+                    {% endfor %}
+            </table>
+        </center>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

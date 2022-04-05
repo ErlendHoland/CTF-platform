@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class "navbar-brand" href="#"> 
+    <a class="navbar-brand" style="color:rgb(255, 255, 255)"; href="{{ url_for('dashboard') }}">Dashboard</a>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link"  style="color:rgb(255, 255, 255)"; href="{{ url_for('index') }}">Get started</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:rgb(255, 255, 255)"; href="{{ url_for('challenges') }}">Submit Flag</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:rgb(255, 255, 255)"; href="{{ url_for('leaderboard') }}">Leaderboard</a>
+        </li>
+
+        <!-- shows admin panel if user role is correct-->
+        {% if current_user.role == 1 %}
+        <li class="nav-item">
+          <a class="nav-link" style="color:rgb(255, 255, 0)"; href="{{ url_for('admin') }}">Admin panel</a>
+        </li>
+        {% endif %}
+
+
+        <!-- switches navbar depending if logged in or not-->
+        <li class="nav-item">
+            {% if current_user.is_authenticated  == true %}
+            <a class="nav-link" style="color:rgb(255, 0, 0)"; href="{{ url_for('logout') }}">Logout </a>
+            {% else %}
+            <a class="nav-link" style="color:rgb(0, 255, 0)"; href="{{ url_for('login') }}">Login </a>
+            {% endif %}
+        </li>
+      </ul>
+
+    </div>
+  </nav>

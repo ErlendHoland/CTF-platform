@@ -1,0 +1,14 @@
+span {
+    text-align: center;
+  }
+  
+  .footer{ 
+      position: fixed;     
+      text-align: center;    
+      bottom: 350px; 
+      width: 100%;
+  } 
+  
+  .link-success {
+      font-size: large;
+  }

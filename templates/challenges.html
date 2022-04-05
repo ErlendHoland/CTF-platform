@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link href="static/challenges.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block body %}
+<div class="container container-table">
+    <div class="row vertical-center-row">
+        <h2> Enter your flag </h2> 
+            <form class="form-control-lg" method="POST" action="/challenges">
+                <div> {{ form.ctf_string (class="form-control-lg mb-2")}} </div>
+                        {{ form.submit (class="btn btn-dark mb-2" )}}
+                </form>
+        </div>
+    </div>
+
+<center>
+    {% for message in get_flashed_messages() %}
+    {% if message == "Well done! you've completed a challenge" %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong>
+        <center>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria label="close"></button>
+        </center>
+    </div>
+    
+    {% elif message == "Challenge has already been submitted" %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ message }}</strong>
+        <center>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria label="close"></button>
+        </center>
+    </div>
+
+    {% endif %}
+    {% endfor %}
+</center>
+  
+{% endblock %}

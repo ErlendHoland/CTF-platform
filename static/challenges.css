@@ -1,0 +1,28 @@
+.alert {
+    width: 50%;
+
+    }
+
+    html, body, .container-table {
+        height: 100%;
+    }
+    .container-table {
+      width:200vw;
+      height:460px;
+    }
+    .vertical-center-row {
+      margin:auto;
+      width:100%;
+      padding:300px;
+      text-align:center;
+    
+    }
+
+    h2 {
+        color: #928484;
+        font-family: arial, sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+        margin-top: 0px;
+        margin-bottom: 1px;
+        }

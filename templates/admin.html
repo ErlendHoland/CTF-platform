@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link href="static/admin.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="row">
+    <center>
+    <div class="col-md-6">
+        <h1>Add a challenge</h1>
+    <form method="POST" action="/admin">
+        {{ form.csrf_token }} <!-- required to validate and process the data -->
+        <div><h3>Flag string:</h3>
+        {{ form.ctf_string }} </div>
+        <div><h3>Flag value:</h3>
+        {{ form.ctf_weight }} </div>
+        {{ form.submit(class="btn btn-dark") }}
+    </center>
+    </form>
+</div>
+
+
+
+<!--Bootstrap alert box for flash() messages START -->
+{% for message in get_flashed_messages() %}
+{% if message == "Successfully added a challenge" or message == "Successfully deleted challenge" %} <!--Displays green alertbox if successfull-->
+<center>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria label="close"></button>
+</div>
+</center>
+
+{% elif message == "Couldn't delete that challenge" or message == "Challenge already exist" %} <!--Displays red alertbox if not successfull-->
+<center>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria label="close"></button>
+{% endif %}
+</div>
+</center>
+{% endfor %}
+<!--Bootstrap alert box for flash() messages END -->
+<div class="container-fluid">
+    <div class="row">
+        <center>
+        <div class="table-responsive col-md-6">
+            <table style="width: 100%;">
+            <tr>
+                <th>CTF string</th>
+                <th>Point value</th>
+                <th>Delete</th>
+            </tr>
+            {% for x in query %}
+            <tr>
+                <td>{{ x.ctf_string }}</td>
+                <td>{{ x.ctf_weight }}</td>
+                <td><a href="/delete/{{ x.id }}" class="btn btn-outline-danger btn-sm">Delete</a></td>
+            </tr>
+            {% endfor %}
+            </table>
+            </center
+        </div>
+    </div>
+</div>
+
+{% endblock %}

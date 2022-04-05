@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link href="static/challenges.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block body %}
+<div class="container container-table">
+    <div class="row vertical-center-row">
+        <h2>Register</h2>
+            <form class="form-control-lg"method="POST" action="/register">
+                <div>{{ form.hidden_tag() }} 
+                <div>{{ form.username(class="form-control-lg mb-2") }}</div>
+                <div>{{ form.password(class="form-control-lg mb-2") }}</div>
+                <div>{{ form.submit(class="btn btn-dark btn-block fa-lg mb-3") }} </div>
+        </form>
+            <a href="/login">Already registered? Login</a> 
+        </div>
+        <center>
+
+    {% for message in get_flashed_messages() %}
+    {% if message == "Account already exist" %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+</center>
+</div>
+{% endblock %}

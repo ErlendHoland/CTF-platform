@@ -1,0 +1,36 @@
+table{
+    font-family: Arial, Helvetica, sans-serif;
+    border:1px solid rgb(158, 158, 158);
+    border-collapse:collapse;
+    width: 100%;
+    table-layout:fixed;
+    margin-right: 0px;
+    margin-left: auto;
+
+    
+}
+td, th {
+border: 1px solid #b1afaf;
+text-align: left;
+padding: 10px;
+}
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+
+th:first-child {
+    width: 40%;
+    }
+
+th:nth-child(2) {
+    width: 10%;
+    }
+th:last-child {
+    width: 20%;
+}
+
+
+
+.alert {
+width: 15%;
+}
